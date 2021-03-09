@@ -1,0 +1,9 @@
+@mixin basic-shadow {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+@mixin component-base-style {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: white;
+}

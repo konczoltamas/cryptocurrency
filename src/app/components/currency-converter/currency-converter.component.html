@@ -1,0 +1,39 @@
+<div class="currency-converter">
+  <div class="converter-row">
+    <app-input
+      #valueInput
+      (keydown.enter)="onCalculate()"
+      [placeholder]="'Value'"
+      [(ngModel)]="value">
+    </app-input>
+  </div>
+  <div class="converter-row">
+    <button class="button" (click)="onReverseChange()">Reverse</button>
+  </div>
+  <div class="converter-row info" [ngClass]="{ 'currency-to-crypto': !currencyToCrypto }">
+    <div class="currency-name">
+      {{ currencyName }}
+    </div>
+    <div class="label">
+      convert to
+    </div>
+    <div class="cryptocurrency-name">
+      <span>{{ cryptocurrencyName }}</span>
+      <span *ngIf="valueInUsd">({{ valueInUsd | currency }})</span>
+    </div>
+  </div>
+  <div class="converter-row">
+    <button [disabled]="valueInUsd == null" class="button" (click)="onCalculate()">Calculate</button>
+  </div>
+  <div *ngIf="calculatedValue" class="converter-row">
+    <ng-container *ngIf="currencyToCrypto && calculatedValue">
+      {{ calculatedValue.toPrecision(5) }}&nbsp; <span>{{ cryptocurrencyName }}</span>
+    </ng-container>
+    <ng-container *ngIf="!currencyToCrypto && calculatedValue">
+      {{ calculatedValue | currency }}
+    </ng-container>
+  </div>
+  <div *ngIf="valueInUsd == null" class="converter-row alert-info">
+    Unfortunately there is no data for {{ cryptocurrencyName }}.
+  </div>
+</div>

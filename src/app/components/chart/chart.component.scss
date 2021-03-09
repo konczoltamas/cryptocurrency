@@ -1,0 +1,12 @@
+@import "../../../styles/main";
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  @include basic-shadow;
+  @include component-base-style;
+
+  .alert-info {
+    width: 100%;
+  }
+}

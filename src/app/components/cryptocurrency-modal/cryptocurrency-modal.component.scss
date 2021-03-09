@@ -1,0 +1,43 @@
+@import "../../../styles/main";
+
+.cryptocurrency-modal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+
+  .cryptocurrency-modal-row {
+    margin-bottom: 20px;
+    width: 65%;
+
+    .button {
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.alert-info {
+      text-align: center;
+    }
+  }
+
+  ::ng-deep {
+    app-select {
+      .select-container {
+        display: flex;
+
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+.close {
+  &:focus {
+    outline: none;
+  }
+}

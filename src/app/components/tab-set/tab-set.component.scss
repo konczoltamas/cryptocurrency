@@ -1,0 +1,19 @@
+@import "../../../styles/main";
+
+.currency-viewer-container {
+  background-color: white;
+
+  .add-cryptocurrency {
+    color: $primary;
+    cursor: pointer;
+  }
+
+  .link {
+    color: grey;
+
+    &.active {
+      color: $primary;
+      background-color: $app-background-color;
+    }
+  }
+}

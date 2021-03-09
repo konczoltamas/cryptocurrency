@@ -1,0 +1,14 @@
+.login {
+  display: flex;
+  justify-content: center;
+  vertical-align: center;
+  align-items: center;
+  height: 100vh;
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+
+  app-login {
+    width: 100%;
+  }
+}

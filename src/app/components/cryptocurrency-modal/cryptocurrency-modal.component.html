@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Add a favorite cryptocurrency</h4>
+  <button type="button" class="close" aria-label="Close" (click)="onClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="cryptocurrency-modal-container">
+  <div *ngIf="loadingCurrencies" class="cryptocurrency-modal-row alert-info">
+    Loading...
+  </div>
+  <div *ngIf="!loadingCurrencies" class="cryptocurrency-modal-row">
+    <app-select
+      [items]="cryptocurrencies"
+      [title]="'Select cryptocurrency'"
+      (selectedCryptocurrency)="onSelectedCryptocurrency($event)">
+    </app-select>
+  </div>
+  <div *ngIf="selectedCryptocurrency" class="cryptocurrency-modal-row">
+    <span>Selected cryptocurrency: </span>{{ selectedCryptocurrency.name }}
+  </div>
+  <div class="cryptocurrency-modal-row">
+    <button class="button" (click)="onAddCryptoCurrency()">Add cryptocurrency</button>
+  </div>
+  <div *ngIf="successful" class="cryptocurrency-modal-row alert-info">
+    Successfully added !
+  </div>
+</div>

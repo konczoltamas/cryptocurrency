@@ -1,0 +1,27 @@
+@import "../../../styles/main";
+
+.cryptocurrency-list-container {
+  display: flex;
+  flex-direction: column;
+  @include basic-shadow;
+  @include component-base-style;
+
+  table {
+    width: 100%;
+
+    .item-row {
+      .item-data {
+        padding: 8px;
+        text-align: right;
+
+        &:first-child {
+          text-align: left;
+        }
+      }
+
+      &:nth-child(even) {
+        background-color: $table-background-color;
+      }
+    }
+  }
+}

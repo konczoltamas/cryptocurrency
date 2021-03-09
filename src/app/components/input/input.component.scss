@@ -1,0 +1,17 @@
+@import "../../../styles/main";
+
+.input-container {
+  .input {
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    padding: 8px;
+    background-color: white;
+    border: 1px solid $input-border-color;
+    border-radius: 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,17 @@
+<div class="chart-container">
+  <ngx-charts-bar-vertical
+    *ngIf="items && items.length > 0"
+    [view]="size"
+    [animations]="animations"
+    [results]="items"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-vertical>
+  <div *ngIf="items == null || items.length === 0 && showInfo" class="alert-info">
+    Unfortunately there is no daily data.
+  </div>
+</div>

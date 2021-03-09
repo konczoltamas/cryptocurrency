@@ -1,0 +1,15 @@
+<div class="currency-viewer-container">
+  <ul ngbNav [activeId]="active" class="nav-tabs">
+    <li
+      *ngFor="let cryptocurrency of savedCryptocurrencies"
+      [ngbNavItem]="cryptocurrency.asset_id"
+      (click)="onTabChange(cryptocurrency)">
+      <a ngbNavLink class="link">
+        {{ cryptocurrency.name }}
+      </a>
+    </li>
+    <li class="nav-item" (click)="onAddClick()">
+      <a class="nav-link add-cryptocurrency">+</a>
+    </li>
+  </ul>
+</div>

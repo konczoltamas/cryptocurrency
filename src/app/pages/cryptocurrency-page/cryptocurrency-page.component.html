@@ -1,0 +1,50 @@
+<div class="cryptocurrency-page-container">
+  <div class="tab-set">
+    <app-tab-set
+      [active]="selectedCryptocurrency?.asset_id"
+      [savedCryptocurrencies]="userCryptocurrencies"
+      (tabClick)="onCryptocurrencyChange($event)"
+      (addClick)="openSaveCryptocurrencyModal()">
+    </app-tab-set>
+  </div>
+  <div class="control-row">
+    <a class="logout" (click)="onLogout()">Logout</a>
+    <button *ngIf="selectedCryptocurrency" class="delete-button" (click)="onDelete()">&times;</button>
+  </div>
+  <div *ngIf="selectedCryptocurrency" class="chart">
+    <h4 class="header">
+      Last seven days price of {{ selectedCryptocurrency.name }}
+    </h4>
+    <app-chart
+      [animations]="false"
+      [showInfo]="true"
+      [size]="[800]"
+      [showXAxis]="true"
+      [showYAxis]="true"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="'Date'"
+      [yAxisLabel]="'Value in USD'"
+      [showLegend]="true"
+      [items]="chartValues">
+    </app-chart>
+  </div>
+  <div *ngIf="selectedCryptocurrency" class="currency-converter">
+    <h4 class="header">
+      Calculate {{ selectedCryptocurrency.name }} to USD
+    </h4>
+    <app-currency-converter
+      [valueInUsd]="selectedCryptocurrency?.price_usd"
+      [currencyName]="'USD'"
+      [cryptocurrencyName]="selectedCryptocurrency?.name">
+    </app-currency-converter>
+  </div>
+  <div class="currency-list">
+    <h4 class="header">
+      Favorites
+    </h4>
+    <app-cryptocurrency-list
+      [items]="websocketListData">
+    </app-cryptocurrency-list>
+  </div>
+</div>

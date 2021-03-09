@@ -1,0 +1,43 @@
+@import "../../../styles/main";
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  @include basic-shadow;
+  @include component-base-style;
+
+  .login-row {
+    position: relative;
+    margin-bottom: 20px;
+
+    ::ng-deep {
+      app-input {
+        &.ng-invalid {
+          &.ng-touched {
+            .input-container {
+              input {
+                border: 1px solid $input-error-color;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .error-message {
+      position: absolute;
+      left: 0;
+      bottom: -20px;
+      font-size: 14px;
+      color: $input-error-color;
+    }
+
+    .button {
+      width: 100%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

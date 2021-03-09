@@ -1,0 +1,11 @@
+<div class="input-container">
+  <input
+    #inputElement
+    class="input"
+    [type]="type"
+    [(ngModel)]="value"
+    [placeholder]="placeholder || ''"
+    (blur)="onBlur()"
+    (ngModelChange)="onChange($event)"
+    type="text">
+</div>

@@ -1,0 +1,11 @@
+$info-border-color: #bee5eb;
+$info-background-color: #d1ecf1;
+$info-color: #0c5460;
+
+.alert-info {
+  padding: 12px 20px;
+  color: $info-color;
+  background-color: #d1ecf1;
+  border: 1px solid $info-border-color;
+  border-radius: 4px;
+}
